@@ -1,0 +1,20 @@
+<h1> Please edit the contact: </h1>
+
+<form action="/contacts/ <% @search_contact.id %>" method="post">
+
+  <input type="hidden" name="method" value="put">
+
+  <input type="text" name="first_name" value="<%= @search_contact.first_name %>">
+
+  <input type="text" name="last_name" value="<%= @search_contact.last_name %>">
+
+  <input type="text" name="email" value="<%= @search_contact.email %>">
+
+  <input type="text" name="note" value="<%= @search_contact.note %>">
+
+</form>
+
+
+
+
+
