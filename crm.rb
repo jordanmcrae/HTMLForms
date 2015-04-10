@@ -2,6 +2,7 @@ require_relative 'contact'
 require_relative 'rolodex'
 require 'sinatra'
 require 'faker'
+require 'pry'
 
 $rolodex = Rolodex.new
 
@@ -24,6 +25,13 @@ get '/contacts/new' do
 end
 
 post '/contacts' do
+  puts "Submitting - params: #{params.inspect}"
   new_contact = Contact.new(params[:first_name], params[:last_name], params[:email], params[:note])
   $rolodex.add_contact(new_contact)
+  redirect("/contacts")
+end
+
+get '/contacts/:id' do
+  @search_contact = $rolodex.find(params[:id].to_i)
+  erb :showcontact
 end
