@@ -33,5 +33,9 @@ end
 
 get '/contacts/:id' do
   @search_contact = $rolodex.find(params[:id].to_i)
-  erb :showcontact
+  if @search_contact
+    erb :showcontact
+  else
+    raise Sinatra::NotFound
+  end
 end
