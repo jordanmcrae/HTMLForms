@@ -50,3 +50,19 @@ get '/contacts/:id/edit' do
     raise Sinatra::NotFound
   end
 end
+
+put '/contacts/:id' do
+  @search_contact = $rolodex.find(params[:id].to_i)
+
+  if @search_contact
+    @search_contact.first_name = params[:first_name]
+    @search_contact.last_name = params[:last_name]
+    @search_contact.email = params[:email]
+    @search_contact.note = params[:note]
+
+    redirect("/contacts")
+  else
+    raise Sinatra::NotFound
+  end
+
+end

@@ -9,7 +9,6 @@ class Rolodex   # => This is the class that helps us hold the contacts and conta
     10.times do
       new_contact = Contact.new(Faker::Name.first_name, Faker::Name.last_name, Faker::Internet.email, Faker::Hacker.say_something_smart)
       add_contact(new_contact)
-      @contacts << new_contact
     end
   end
 
