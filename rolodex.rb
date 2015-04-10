@@ -23,4 +23,8 @@ class Rolodex   # => This is the class that helps us hold the contacts and conta
     @contacts.find {|contact| contact.id == contact_id }
   end
 
+  def delete_contact(contact)
+    @contacts.delete(contact)
+  end
+
 end

@@ -64,5 +64,15 @@ put '/contacts/:id' do
   else
     raise Sinatra::NotFound
   end
-
 end
+
+delete "/contacts/:id" do
+  @search_contact = $rolodex.find(params[:id].to_i)
+  if @search_contact
+    $rolodex.delete_contact(@search_contact)
+    redirect("/")
+  else
+    raise Sinatra::NotFound
+  end
+end
+
