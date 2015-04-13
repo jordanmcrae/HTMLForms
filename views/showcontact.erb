@@ -1,12 +1,3 @@
 <h1><%= @search_contact.first_name %> <%= @search_contact.last_name %></h1>
 <p>Email: <%= @search_contact.email %></p>
 <p>Note: <%= @search_contact.note %></p>
-
-
-<form action="/contacts/<%= @search_contact.id %>" method="post">
-
-  <input type="hidden" name="_method" value="delete">
-
-  <input type="submit" name="Delete Contact" value="Delete">
-
-</form>
