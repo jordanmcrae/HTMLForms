@@ -1,3 +1,10 @@
 <h1><%= @search_contact.first_name %> <%= @search_contact.last_name %></h1>
 <p>Email: <%= @search_contact.email %></p>
 <p>Note: <%= @search_contact.note %></p>
+    <a href="/contacts/<%= @search_contact.id %>/edit" class="editbutton">Edit</a>
+
+      <form action="/contacts/<%= @search_contact.id %>" method="post" class="editbutton">
+
+        <input type="hidden" name="_method" value="put">
+
+      </form>
